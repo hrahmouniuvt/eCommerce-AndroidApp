@@ -84,9 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
         final DatabaseReference RootRef ;
         RootRef = FirebaseDatabase.getInstance().getReference();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
 
-        myRef.setValue("Hello, World!");
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
