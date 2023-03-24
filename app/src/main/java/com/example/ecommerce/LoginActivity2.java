@@ -15,14 +15,18 @@ import android.widget.Toast;
 
 import com.example.ecommerce.R;
 import com.example.ecommerce.model.Users;
+import com.example.ecommerce.model.prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rey.material.widget.CheckBox;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import io.paperdb.Paper;
 
 public class LoginActivity2 extends AppCompatActivity {
 
@@ -30,6 +34,7 @@ public class LoginActivity2 extends AppCompatActivity {
     private Button LoginButton;
     private ProgressDialog loadingBar;
     private String parentDbName="Users";
+    private CheckBox ChkBoxRememberMe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,8 @@ public class LoginActivity2 extends AppCompatActivity {
         InputPassword = (EditText) findViewById(R.id.login_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
         loadingBar = new ProgressDialog(this);
+        ChkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
+        Paper.init(this);
 
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +78,11 @@ public class LoginActivity2 extends AppCompatActivity {
             }
 
             private void AllowAccessToAccount(String phone, String password) {
+                if(ChkBoxRememberMe.isChecked()){
+
+                    Paper.book().write(Prevalent.UserPhoneKey,phone);
+                    Paper.book().write(Prevalent.UserPasswordKey,password);
+                }
                 final DatabaseReference RootRef ;
                 RootRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
