@@ -22,8 +22,8 @@
 
         <LinearLayout
         android:id="@+id/linear1_category_layout"
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:layout_below="@+id/slogan_category"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
@@ -65,8 +65,8 @@
 
     <LinearLayout
         android:id="@+id/linear2_category_layout"
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:layout_below="@+id/linear1_category_layout"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
@@ -109,8 +109,8 @@
 
     <LinearLayout
         android:id="@+id/linear3_category_layout"
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:layout_below="@+id/linear2_category_layout"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
