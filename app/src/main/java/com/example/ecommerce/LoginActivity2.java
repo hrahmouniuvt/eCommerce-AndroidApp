@@ -122,13 +122,17 @@ public class LoginActivity2 extends AppCompatActivity {
                 if (snapshot.exists()) {
                     Toast.makeText(getApplicationContext(), "kokokokoko", Toast.LENGTH_LONG).show();
                     //Users usersData = snapshot.child(parentDbName).child(phone).getValue(Users.class);
+
                     Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
                     Log.d("AnyTagYouWant", map.toString());
 
                     //Toast.makeText(getApplicationContext(), (String) map.get("phone"), Toast.LENGTH_LONG).show();
                     Map<String, Object> nestedmap0 = (Map) map.get(parentDbName);
-                    Map<String, Object> nestedmap = (Map) nestedmap0.get(phone);
-                    Users usersData = new Users(String.valueOf(nestedmap.get("name")), String.valueOf(nestedmap.get("phone")), String.valueOf(nestedmap.get("password")));
+                    Log.d("nestedmap0", nestedmap0.toString());
+
+                    Map<String, Object> nestedmap = (Map) nestedmap0.get("phone");
+                    Log.d("nestedmap", nestedmap.toString());
+                    Users usersData = new Users("Hicham", String.valueOf(nestedmap.get("phone")), String.valueOf(nestedmap.get("password")));
                     Log.d("TagYouWant", usersData.toString());
 
                     if (usersData.getPhone().equals(phone)) {
